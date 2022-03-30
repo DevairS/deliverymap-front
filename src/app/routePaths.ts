@@ -1,6 +1,6 @@
 export enum Path {
   HOME = '/',
-  CUSTOMERS = '/customers',
+  DELIVERYLIST = '/list',
 }
 
 export type RoutesType = typeof Path[keyof typeof Path];

@@ -26,9 +26,9 @@ const SideMenu: FC<Props> = ({ isOpen }) => {
             <FontAwesomeIcon icon={faHome} />
             <ItemText>Dashboard</ItemText>
           </Item>
-          <Item to="/customers">
+          <Item to="/list">
             <FontAwesomeIcon icon={faHome} />
-            <ItemText>Customers</ItemText>
+            <ItemText>DeliveryList</ItemText>
           </Item>
         </ContainerItems>
       </ContainerSideMenu>
