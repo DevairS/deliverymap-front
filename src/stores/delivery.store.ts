@@ -33,6 +33,12 @@ class DeliveryStore {
       this.deliveryList = cloneData;
     });
   };
+
+  getDeliveryById = async (id: string): Promise<Delivery.Data> => {
+    const data = await this.deliveryMapApi.getDeliveryById(id);
+    const dateFormated = formatDate(data.date, 'dd/MM/yyyy');
+    return { ...data, date: dateFormated };
+  };
 }
 
 export default DeliveryStore;

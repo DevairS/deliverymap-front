@@ -14,7 +14,7 @@ export const ContainerMenu = styled.div`
 export const ContainerPage = styled.div`
   height: 100%;
   margin-top: ${pxToRem(24)};
-
+  margin-right: ${pxToRem(24)};
   ${mqDesktop(css`
     margin: ${pxToRem(24)};
   `)};

@@ -18,4 +18,25 @@ export default class DeliveryMapApi {
       throw Error(err);
     }
   };
+
+  getDeliveryById = async (id: string): Promise<Delivery.Data> => {
+    try {
+      // const { data } = await api.get(`/delivery/${id}`);
+      return {
+        id: 1,
+        name: 'Devair',
+        date: '1998-10-27T00:00:00.000Z',
+        startingPoint: {
+          latitude: 20,
+          longitude: 10,
+        },
+        deliveryPoint: {
+          latitude: 20,
+          longitude: 10,
+        },
+      };
+    } catch (err) {
+      throw Error(err);
+    }
+  };
 }

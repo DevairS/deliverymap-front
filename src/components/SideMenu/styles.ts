@@ -15,29 +15,27 @@ export const Container = styled.div<IsOpen>`
   height: 100%;
   padding: ${pxToRem(24)};
 
-  ${mqDesktop(css`
-    width: ${pxToRem(340)};
-    position: absolute;
-    padding: ${pxToRem(0)};
-  `)};
+  ${({ isOpen }) => css`
+    ${mqDesktop(css`
+      width: ${pxToRem(340)};
+      position: absolute;
+      padding: ${pxToRem(0)};
+      left: ${isOpen ? pxToRem(0) : pxToRem(-400)};
+      animation: ${isOpen
+          ? 'slide-in-right-desktop'
+          : 'slide-out-right-desktop'}
+        0.3s ease-in-out;
+    `)};
 
-  ${mqTablet(css`
-    width: ${pxToRem(280)};
-  `)};
-
-  @media (max-width: 1080px) {
-    left: ${({ isOpen }) => (isOpen ? pxToRem(0) : pxToRem(-400))};
-    animation: ${({ isOpen }) =>
-        isOpen ? 'slide-in-right-desktop' : 'slide-out-right-desktop'}
-      0.3s ease-in-out;
-  }
-
-  @media (max-width: 768px) {
-    left: ${({ isOpen }) => (isOpen ? pxToRem(0) : pxToRem(-280))};
-    animation: ${({ isOpen }) =>
-        isOpen ? 'slide-in-right-tablet' : 'slide-out-right-tablet'}
-      0.3s ease-in-out;
-  }
+    ${mqTablet(css`
+      width: ${pxToRem(280)};
+      left: ${isOpen ? pxToRem(0) : pxToRem(-280)};
+      animation: ${isOpen
+          ? 'slide-in-right-tablet'
+          : 'slide-out-right-tablet'}0.3s
+        ease-in-out;
+    `)};
+  `}
 
   @keyframes slide-in-right-desktop {
     0% {
