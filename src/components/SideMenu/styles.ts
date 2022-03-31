@@ -2,7 +2,15 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { FontAwesomeIcon as _FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { radius } from '~/theme';
-import { mqDesktop, mqTablet, pxToRem } from '~/utils';
+import {
+  mqDesktop,
+  mqTablet,
+  pxToRem,
+  slideInDesktop,
+  slideOutDesktop,
+  slideInTablet,
+  slideOutTablet,
+} from '~/utils';
 
 const { mediumRadius } = radius;
 
@@ -21,57 +29,15 @@ export const Container = styled.div<IsOpen>`
       position: absolute;
       padding: ${pxToRem(0)};
       left: ${isOpen ? pxToRem(0) : pxToRem(-400)};
-      animation: ${isOpen
-          ? 'slide-in-right-desktop'
-          : 'slide-out-right-desktop'}
-        0.3s ease-in-out;
+      animation: ${isOpen ? slideInDesktop : slideOutDesktop} 0.3s ease-in-out;
     `)};
 
     ${mqTablet(css`
       width: ${pxToRem(280)};
       left: ${isOpen ? pxToRem(0) : pxToRem(-280)};
-      animation: ${isOpen
-          ? 'slide-in-right-tablet'
-          : 'slide-out-right-tablet'}0.3s
-        ease-in-out;
+      animation: ${isOpen ? slideInTablet : slideOutTablet} 0.3s ease-in-out;
     `)};
   `}
-
-  @keyframes slide-in-right-desktop {
-    0% {
-      transform: translateX(-340px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes slide-out-right-desktop {
-    0% {
-      transform: translateX(340px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes slide-in-right-tablet {
-    0% {
-      transform: translateX(-280px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes slide-out-right-tablet {
-    0% {
-      transform: translateX(280px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-  }
 `;
 
 export const ContainerSideMenu = styled.div`

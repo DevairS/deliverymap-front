@@ -1,8 +1,8 @@
 import { Link as _Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon as _FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { pxToRem } from '~/utils';
+import { mqTablet, pxToRem } from '~/utils';
 
 export const TableContainer = styled.table`
   background-color: ${({ theme }) => theme.surface};
@@ -24,6 +24,10 @@ export const Td = styled.td`
   color: ${({ theme }) => theme.text};
   text-align: center;
   padding: ${pxToRem(4)};
+
+  ${mqTablet(css`
+    font-size: ${pxToRem(12)};
+  `)}
 `;
 
 export const Link = styled(_Link)``;

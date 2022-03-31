@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Input } from '~/components';
 import { radius } from '~/theme';
-import { pxToRem } from '~/utils';
+import { mqTablet, pxToRem } from '~/utils';
 
 const { mediumRadius } = radius;
 
@@ -12,6 +12,10 @@ export const Form = styled.form`
   align-items: center;
   background-color: ${({ theme }) => theme.surface};
   padding: ${pxToRem(20)} ${pxToRem(10)};
+
+  ${mqTablet(css`
+    width: 100%;
+  `)};
 `;
 
 export const Title = styled.h3`
@@ -20,6 +24,10 @@ export const Title = styled.h3`
 
 export const ContainerTwoInput = styled.div`
   width: 100%;
+
+  ${mqTablet(css`
+    flex-direction: column;
+  `)};
 `;
 
 export const InputName = styled(Input).attrs({
@@ -47,6 +55,10 @@ export const InputStartLongitude = styled(Input).attrs({
 })`
   margin-left: 0;
   margin-right: ${pxToRem(10)};
+
+  ${mqTablet(css`
+    margin: ${pxToRem(12)} ${pxToRem(0)};
+  `)};
 `;
 
 export const InputStartLatitude = styled(Input).attrs({
@@ -58,6 +70,9 @@ export const InputStartLatitude = styled(Input).attrs({
 })`
   margin-left: ${pxToRem(10)};
   margin-right: 0;
+  ${mqTablet(css`
+    margin: ${pxToRem(12)} ${pxToRem(0)};
+  `)};
 `;
 
 export const InputEndLongitude = styled(Input).attrs({
@@ -69,6 +84,9 @@ export const InputEndLongitude = styled(Input).attrs({
 })`
   margin-left: 0;
   margin-right: ${pxToRem(10)};
+  ${mqTablet(css`
+    margin: ${pxToRem(12)} ${pxToRem(0)};
+  `)};
 `;
 
 export const InputEndLatitude = styled(Input).attrs({
@@ -80,6 +98,9 @@ export const InputEndLatitude = styled(Input).attrs({
 })`
   margin-left: ${pxToRem(10)};
   margin-right: 0;
+  ${mqTablet(css`
+    margin: ${pxToRem(12)} ${pxToRem(0)};
+  `)};
 `;
 
 export const ButtonSubmit = styled.button`
