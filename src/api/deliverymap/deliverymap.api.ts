@@ -7,7 +7,6 @@ export default class DeliveryMapApi {
     } catch (err) {
       throw Error(err);
     }
-    return api.post('/delivery', delivery);
   };
 
   getDeliveryList = async (): Promise<Delivery.Data[]> => {

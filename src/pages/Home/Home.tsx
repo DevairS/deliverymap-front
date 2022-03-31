@@ -1,12 +1,16 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import Form from './form';
-import { Container, Text } from './styles';
+import { Container } from './styles';
 
-const Home: FC = () => {
+type Props = {
+  handleSubmitForm: (values: Delivery.Data) => void;
+};
+
+const Home: FC<Props> = ({ handleSubmitForm }) => {
   return (
     <Container>
-      <Form />
+      <Form handleSubmitForm={handleSubmitForm} />
     </Container>
   );
 };
