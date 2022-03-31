@@ -116,7 +116,7 @@ export const ItemText = styled.p`
   color: ${({ theme }) => theme.text};
 `;
 export const FontAwesomeIcon = styled(_FontAwesomeIcon).attrs((props) => ({
-  color: props.theme.secondary,
+  color: props.theme.primary,
 }))`
   margin-right: ${pxToRem(20)};
 `;

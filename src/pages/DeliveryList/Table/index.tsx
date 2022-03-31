@@ -1,5 +1,14 @@
 import { FC } from 'react';
-import { Link, TableContainer, TBody, Td, THead, Tr } from './styles';
+import {
+  Link,
+  TableContainer,
+  TBody,
+  Td,
+  THead,
+  Tr,
+  TrHead,
+  FontAwesomeIcon,
+} from './styles';
 
 type Props = {
   deliveryList: Delivery.Data[];
@@ -9,11 +18,11 @@ const Table: FC<Props> = ({ deliveryList }) => {
   return (
     <TableContainer>
       <THead>
-        <Tr>
+        <TrHead>
           <Td>Cliente</Td>
           <Td>Data</Td>
-          <Td>Ações</Td>
-        </Tr>
+          <Td>Mapa de entrega</Td>
+        </TrHead>
       </THead>
       <TBody>
         {deliveryList.map((delivery) => (
@@ -21,7 +30,9 @@ const Table: FC<Props> = ({ deliveryList }) => {
             <Td>{delivery.name}</Td>
             <Td>{delivery.date}</Td>
             <Td>
-              <Link to={`/delivery/${delivery.id}`}>Mapa</Link>
+              <Link to={`/delivery/${delivery.id}`}>
+                <FontAwesomeIcon />
+              </Link>
             </Td>
           </Tr>
         ))}
