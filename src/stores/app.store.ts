@@ -8,7 +8,7 @@ class AppStore {
   }
 
   @persist('object')
-  theme: App.Theme = 'dark';
+  theme: App.Theme = 'light';
 
   @persist('object')
   userLocation: GeolocationPosition = null;
