@@ -19,6 +19,7 @@ interface IsOpen {
 }
 
 export const Container = styled.div<IsOpen>`
+  display: flex;
   width: ${pxToRem(400)};
   height: 100%;
   padding: ${pxToRem(24)};
@@ -41,6 +42,7 @@ export const Container = styled.div<IsOpen>`
 `;
 
 export const ContainerSideMenu = styled.div`
+  display: flex;
   width: 100%;
   background: ${({ theme }) => theme.surface};
   flex-direction: column;
@@ -52,6 +54,7 @@ export const ContainerSideMenu = styled.div`
 `;
 
 export const ContainerTitle = styled.div`
+  display: flex;
   justify-content: center;
   padding: ${pxToRem(16)};
   margin-bottom: ${pxToRem(16)};
@@ -62,6 +65,7 @@ export const Title = styled.h3`
 `;
 
 export const ContainerItems = styled.div`
+  display: flex;
   flex-direction: column;
 `;
 

@@ -1,13 +1,18 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { radius } from '~/theme';
-import { pxToRem } from '~/utils';
+import { mqDesktop, pxToRem } from '~/utils';
 
 const { mediumRadius } = radius;
 
 export const Container = styled.div`
+  display: flex;
   width: 100%;
   flex-direction: column;
   margin: ${pxToRem(12)} ${pxToRem(24)};
+
+  ${mqDesktop(css`
+    margin: 0;
+  `)};
 `;
 
 export const TextInput = styled.input`

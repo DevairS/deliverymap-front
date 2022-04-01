@@ -7,6 +7,7 @@ import IconButton from '../IconButton';
 const { mediumRadius } = radius;
 
 export const Container = styled.div`
+  display: flex;
   height: ${pxToRem(50)};
   margin-top: ${pxToRem(24)};
   margin-right: ${pxToRem(24)};
@@ -15,7 +16,7 @@ export const Container = styled.div`
   border-radius: ${mediumRadius};
   padding: ${pxToRem(8)};
   ${mqDesktop(css`
-    margin-left: ${pxToRem(24)};
+    margin-left: ${pxToRem(8)};
   `)}
 `;
 

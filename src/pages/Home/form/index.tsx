@@ -1,15 +1,12 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Formik } from 'formik';
+import MapsForm from './mapsForm';
 import {
   ButtonSubmit,
   ContainerTwoInput,
   Form,
   InputDate,
-  InputEndLatitude,
-  InputEndLongitude,
   InputName,
-  InputStartLatitude,
-  InputStartLongitude,
   Title,
 } from './styles';
 import { validationSchema } from './validation';
@@ -19,6 +16,9 @@ type Props = {
 };
 
 const FormContainer: FC<Props> = ({ handleSubmitForm }) => {
+  const [pointA, setPointA] = useState<google.maps.LatLngLiteral>();
+  const [pointB, setPointB] = useState<google.maps.LatLngLiteral>();
+
   return (
     <Formik
       initialValues={{
@@ -31,60 +31,44 @@ const FormContainer: FC<Props> = ({ handleSubmitForm }) => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        const deliveryData = {
-          name: values.name,
-          date: values.date,
-          startingPoint: {
-            latitude: values.startLatitude,
-            longitude: values.startLongitude,
-          },
-          deliveryPoint: {
-            latitude: values.endLatitude,
-            longitude: values.endLongitude,
-          },
-        };
-        handleSubmitForm(deliveryData);
+        if (pointA && pointB) {
+          const deliveryData = {
+            name: values.name,
+            date: values.date,
+            startingPoint: {
+              latitude: pointA.lat.toString(),
+              longitude: pointA.lng.toString(),
+            },
+            deliveryPoint: {
+              latitude: pointB.lat.toString(),
+              longitude: pointB.lng.toString(),
+            },
+          };
+          handleSubmitForm(deliveryData);
+        }
       }}
     >
       {({ errors, touched, handleChange, handleSubmit, values }) => (
         <Form onSubmit={handleSubmit}>
           <Title>Formulario de cadastro de nova entrega</Title>
-          <InputName
-            onChange={handleChange}
-            value={values.name}
-            errorMessage={touched.name ? errors.name : null}
-          />
-          <InputDate
-            onChange={handleChange}
-            value={values.date}
-            errorMessage={touched.date ? errors.date : null}
-          />
           <ContainerTwoInput>
-            <InputStartLongitude
+            <InputName
               onChange={handleChange}
-              value={values.startLongitude}
-              errorMessage={
-                touched.startLongitude ? errors.startLongitude : null
-              }
+              value={values.name}
+              errorMessage={touched.name ? errors.name : null}
             />
-            <InputStartLatitude
+            <InputDate
               onChange={handleChange}
-              value={values.startLatitude}
-              errorMessage={touched.startLatitude ? errors.startLatitude : null}
+              value={values.date}
+              errorMessage={touched.date ? errors.date : null}
             />
           </ContainerTwoInput>
-          <ContainerTwoInput>
-            <InputEndLongitude
-              onChange={handleChange}
-              value={values.endLongitude}
-              errorMessage={touched.endLongitude ? errors.endLongitude : null}
-            />
-            <InputEndLatitude
-              onChange={handleChange}
-              value={values.endLatitude}
-              errorMessage={touched.endLatitude ? errors.endLatitude : null}
-            />
-          </ContainerTwoInput>
+          <MapsForm
+            pointA={pointA}
+            pointB={pointB}
+            setPointA={setPointA}
+            setPointB={setPointB}
+          />
           <ButtonSubmit type="submit">Cadastrar</ButtonSubmit>
         </Form>
       )}

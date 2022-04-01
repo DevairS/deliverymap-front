@@ -17,7 +17,4 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
-  div {
-    display: flex;
-  }
 `;

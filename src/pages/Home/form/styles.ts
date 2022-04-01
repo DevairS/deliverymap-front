@@ -6,7 +6,7 @@ import { mqTablet, pxToRem } from '~/utils';
 const { mediumRadius } = radius;
 
 export const Form = styled.form`
-  width: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +23,7 @@ export const Title = styled.h3`
 `;
 
 export const ContainerTwoInput = styled.div`
+  display: flex;
   width: 100%;
 
   ${mqTablet(css`
@@ -45,63 +46,6 @@ export const InputDate = styled(Input).attrs({
   placeholder: 'Data',
   label: 'Data da entrega',
 })``;
-
-export const InputStartLongitude = styled(Input).attrs({
-  type: 'number',
-  id: 'startLongitude',
-  name: 'startLongitude',
-  label: 'Longitude de origem',
-  placeholder: 'Longitude',
-})`
-  margin-left: 0;
-  margin-right: ${pxToRem(10)};
-
-  ${mqTablet(css`
-    margin: ${pxToRem(12)} ${pxToRem(0)};
-  `)};
-`;
-
-export const InputStartLatitude = styled(Input).attrs({
-  type: 'number',
-  id: 'startLatitude',
-  name: 'startLatitude',
-  label: 'latitude de origem',
-  placeholder: 'Latitude',
-})`
-  margin-left: ${pxToRem(10)};
-  margin-right: 0;
-  ${mqTablet(css`
-    margin: ${pxToRem(12)} ${pxToRem(0)};
-  `)};
-`;
-
-export const InputEndLongitude = styled(Input).attrs({
-  type: 'number',
-  id: 'endLongitude',
-  name: 'endLongitude',
-  label: 'Longitude de entrega',
-  placeholder: 'Longitude',
-})`
-  margin-left: 0;
-  margin-right: ${pxToRem(10)};
-  ${mqTablet(css`
-    margin: ${pxToRem(12)} ${pxToRem(0)};
-  `)};
-`;
-
-export const InputEndLatitude = styled(Input).attrs({
-  type: 'number',
-  id: 'endLatitude',
-  name: 'endLatitude',
-  label: 'latitude de entrega',
-  placeholder: 'Latitude',
-})`
-  margin-left: ${pxToRem(10)};
-  margin-right: 0;
-  ${mqTablet(css`
-    margin: ${pxToRem(12)} ${pxToRem(0)};
-  `)};
-`;
 
 export const ButtonSubmit = styled.button`
   border: none;
