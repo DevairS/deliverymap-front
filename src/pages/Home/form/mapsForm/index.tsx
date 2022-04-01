@@ -14,9 +14,16 @@ type Props = {
   pointB: google.maps.LatLngLiteral;
   setPointA: (point: google.maps.LatLngLiteral) => void;
   setPointB: (point: google.maps.LatLngLiteral) => void;
+  location: google.maps.LatLngLiteral;
 };
 
-const MapsForm: FC<Props> = ({ pointA, pointB, setPointA, setPointB }) => {
+const MapsForm: FC<Props> = ({
+  pointA,
+  pointB,
+  setPointA,
+  setPointB,
+  location,
+}) => {
   const [map, setMap] = useState<google.maps.Map>();
   const [searchBoxA, setSearchBoxA] = useState<google.maps.places.SearchBox>();
   const [searchBoxB, setSearchBoxB] = useState<google.maps.places.SearchBox>();
@@ -27,11 +34,6 @@ const MapsForm: FC<Props> = ({ pointA, pointB, setPointA, setPointB }) => {
 
   const [response, setResponse] =
     useState<google.maps.DistanceMatrixResponse | null>(null);
-
-  const position = {
-    lat: -27.590824,
-    lng: -48.551262,
-  };
 
   const onMapLoad = (map: google.maps.Map): void => {
     setMap(map);
@@ -114,8 +116,8 @@ const MapsForm: FC<Props> = ({ pointA, pointB, setPointA, setPointB }) => {
             width: '100%',
             height: '600px',
           }}
-          center={position}
-          zoom={15}
+          center={location}
+          zoom={14}
           onLoad={onMapLoad}
         >
           <ContainerAddress>

@@ -13,9 +13,10 @@ import { validationSchema } from './validation';
 
 type Props = {
   handleSubmitForm: (values: Delivery.Data) => void;
+  location: google.maps.LatLngLiteral;
 };
 
-const FormContainer: FC<Props> = ({ handleSubmitForm }) => {
+const FormContainer: FC<Props> = ({ handleSubmitForm, location }) => {
   const [pointA, setPointA] = useState<google.maps.LatLngLiteral>();
   const [pointB, setPointB] = useState<google.maps.LatLngLiteral>();
 
@@ -68,6 +69,7 @@ const FormContainer: FC<Props> = ({ handleSubmitForm }) => {
             pointB={pointB}
             setPointA={setPointA}
             setPointB={setPointB}
+            location={location}
           />
           <ButtonSubmit type="submit">Cadastrar</ButtonSubmit>
         </Form>

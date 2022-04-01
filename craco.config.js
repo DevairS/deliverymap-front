@@ -12,6 +12,7 @@ module.exports = {
       '~/theme': path.resolve(__dirname, 'src/theme'),
       '~/utils': path.resolve(__dirname, 'src/utils'),
       '~/services': path.resolve(__dirname, 'src/services'),
+      '~/translate': path.resolve(__dirname, 'src/translate'),
     },
   },
 };

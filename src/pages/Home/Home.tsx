@@ -5,12 +5,13 @@ import { Container } from './styles';
 
 type Props = {
   handleSubmitForm: (values: Delivery.Data) => void;
+  location: google.maps.LatLngLiteral;
 };
 
-const Home: FC<Props> = ({ handleSubmitForm }) => {
+const Home: FC<Props> = ({ handleSubmitForm, location }) => {
   return (
     <Container>
-      <Form handleSubmitForm={handleSubmitForm} />
+      <Form handleSubmitForm={handleSubmitForm} location={location} />
     </Container>
   );
 };
