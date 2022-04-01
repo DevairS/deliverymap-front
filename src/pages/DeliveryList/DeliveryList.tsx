@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Container } from './styles';
-import Table from './Table';
+import Table from './table';
 
 type Props = {
   deliveryList: Delivery.Data[];

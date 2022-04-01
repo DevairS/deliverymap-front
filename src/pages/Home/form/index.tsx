@@ -35,12 +35,12 @@ const FormContainer: FC<Props> = ({ handleSubmitForm }) => {
           name: values.name,
           date: values.date,
           startingPoint: {
-            latitude: parseInt(values.startLatitude, 10),
-            longitude: parseInt(values.startLongitude, 10),
+            latitude: values.startLatitude,
+            longitude: values.startLongitude,
           },
           deliveryPoint: {
-            latitude: parseInt(values.endLatitude, 10),
-            longitude: parseInt(values.endLongitude, 10),
+            latitude: values.endLatitude,
+            longitude: values.endLongitude,
           },
         };
         handleSubmitForm(deliveryData);

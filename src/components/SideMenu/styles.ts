@@ -22,11 +22,11 @@ export const Container = styled.div<IsOpen>`
   width: ${pxToRem(400)};
   height: 100%;
   padding: ${pxToRem(24)};
-
   ${({ isOpen }) => css`
     ${mqDesktop(css`
       width: ${pxToRem(340)};
       position: absolute;
+      z-index: 9999;
       padding: ${pxToRem(0)};
       left: ${isOpen ? pxToRem(0) : pxToRem(-400)};
       animation: ${isOpen ? slideInDesktop : slideOutDesktop} 0.3s ease-in-out;

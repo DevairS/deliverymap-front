@@ -4,12 +4,12 @@ declare namespace Delivery {
     name: string;
     date: string;
     startingPoint: {
-      latitude: number;
-      longitude: number;
+      latitude: string;
+      longitude: string;
     };
     deliveryPoint: {
-      latitude: number;
-      longitude: number;
+      latitude: string;
+      longitude: string;
     };
   };
 }
